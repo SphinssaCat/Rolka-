@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Админ: добавить сюжет — Rolka-</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Добавить сюжет (админ)</h1>
+    <nav><a href="index.html">← Главная</a></nav>
+  </header>
+
+  <main class="container">
+    <form id="add-story-form">
+      <label>
+        Название сюжета:
+        <input type="text" name="title" required placeholder="Например: Побег из города" />
+      </label>
+
+      <label>
+        Краткое описание (для карточки):
+        <textarea name="short" rows="3" required placeholder="1–2 предложения для превью"></textarea>
+      </label>
+
+      <label>
+        Полный текст истории (Markdown):
+        <textarea name="content" rows="15" placeholder="Используйте Markdown: # заголовок, **жирный**, *курсив*, ![фото](assets/images/file.jpg)" required></textarea>
+      </label>
+
+      <label>
+        Картинки:
+        <input type="file" name="images" multiple accept="image/*" />
+        <p class="hint">
+          Загружайте фото локально на свой компьютер. В тексте истории используйте ссылки вида <code>![Описание](assets/images/my-photo.jpg)</code>.
+          Файлы картинок нужно будет вручную положить в папку <code>assets/images/</code> в репозитории и сделать PR.
+        </p>
+      </label>
+
+      <button type="submit">Сгенерировать шаблон PR</button>
+    </form>
+
+    <section id="pr-preview" style="display:none; margin-top:2rem;">
+      <h3>Шаблон Pull Request</h3>
+      <p>Скопируйте текст ниже и создайте PR на GitHub:</p>
+      <pre id="pr-body" style="background:#f5f5f5; padding:1rem; border:1px solid #ccc; white-space:pre-wrap;"></pre>
+      <p><a id="pr-link" target="_blank" class="btn">Создать PR на GitHub</a></p>
+    </section>
+  </main>
+
+  <footer><p>Только для администратора (SphinssaCat)</p></footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
